@@ -27,17 +27,20 @@ function getNepaliDate(birthDate) {
 }
 
 function updateReadme(timeDiff, nepaliBirthDate) {
-    const readmeContent = `# Time Since Birth (Updated Every Minute)
+    const readmeContent = `# ⏳ Time Since Birth (Updated Every Minute)
 
-**English Birth Date**: ${englishBirthDate.toDateString()}
-**Nepali Birth Date**: ${nepaliBirthDate}
+| **English Birth Date** | ${englishBirthDate.toDateString()} |
+|------------------------|-------------------------------------|
+| **Nepali Birth Date**  | ${nepaliBirthDate}                  |
 
-**Years**: ${timeDiff.years}
-**Months**: ${timeDiff.months}
-**Days**: ${timeDiff.days}
-**Hours**: ${timeDiff.hours}
-**Minutes**: ${timeDiff.minutes}
-**Seconds**: ${timeDiff.seconds}
+## 📅 Elapsed Time:
+
+- **Years**: ${timeDiff.years}
+- **Months**: ${timeDiff.months}
+- **Days**: ${timeDiff.days}
+- **Hours**: ${timeDiff.hours}
+- **Minutes**: ${timeDiff.minutes}
+- **Seconds**: ${timeDiff.seconds}
 
 This file updates automatically every minute to show the time since birth in both the English and Nepali calendars.`;
 
