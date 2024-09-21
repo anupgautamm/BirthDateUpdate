@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { execSync } = require('child_process');
 const simpleGit = require('simple-git');
-const NepaliDate = require('nepali-date');
+const { engToNep } = require('nepali-date-converter'); 
 
 const git = simpleGit();
 
@@ -22,8 +22,12 @@ function calculateTimeDifference(birthDate) {
 }
 
 function getNepaliDate(birthDate) {
-    const nepaliDate = new NepaliDate(birthDate);
-    return nepaliDate.format("YYYY/MM/DD");
+    const year = birthDate.getFullYear();
+    const month = birthDate.getMonth() + 1; 
+    const day = birthDate.getDate();
+
+    const nepaliDate = engToNep(year, month, day); 
+    return `${nepaliDate.year}/${nepaliDate.month}/${nepaliDate.day}`;
 }
 
 function updateReadme(timeDiff, nepaliBirthDate) {
