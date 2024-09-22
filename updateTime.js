@@ -5,7 +5,7 @@ const { engToNep } = require('nepali-date-converter');
 
 const git = simpleGit();
 
-const englishBirthDate = new Date(2000, 10, 23); 
+const englishBirthDate = new Date(2000, 11, 23); 
 
 function calculateTimeDifference(birthDate) {
     const now = new Date();
