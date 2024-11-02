@@ -52,7 +52,7 @@ async function commitAndPush() {
     try {
         await git.pull('origin', 'master');
         await git.add('./README.md');
-        await git.commit('Updated time since birth');
+        await git.commit('Updated Time since birth');
         await git.push();
     } catch (error) {
         console.error('Error during commit and push:', error);

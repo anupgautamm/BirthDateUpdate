@@ -2,53 +2,29 @@ name: Update README with Time Since Birth
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
-
-permissions:
-  contents: write
-
-concurrency:
-  group: update-readme
-  cancel-in-progress: true
+    - cron: "*/5 * * * *" # Adjust the cron as needed
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+    - name: Configure Git
+      run: |
+        git config --global user.email "anupgautam430@gmail.com"
+        git config --global user.name "Anup Gautam"
 
-      - name: Install dependencies
-        run: npm install
+    - name: Run update script
+      run: |
+        node updateTime.js
 
-      - name: Run the update script with debug
-        run: |
-          node updateTime.js || echo "Script failed"
-
-      - name: Configure Git
-        run: |
-          git config --global user.name 'Anup Gautam'
-          git config --global user.email 'anupgautam430@gmail.com'
-
-      - name: Pull latest changes
-        run: |
-          git pull origin master || echo "No changes to pull"
-
-      - name: Add and Commit changes
-        run: |
-          git add README.md
-          git commit -m "Updated time since birth" || echo "No changes to commit"
-
-      - name: Push changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git push origin master || echo "No changes to push"
+    - name: Commit and push changes
+      run: |
+        git add README.md
+        git commit -m "Updated time since birth"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
