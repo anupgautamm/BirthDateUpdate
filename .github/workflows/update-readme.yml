@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -32,13 +34,15 @@ jobs:
           git config --global user.name 'Anup Gautam'
           git config --global user.email 'anupgautam430@gmail.com'
 
+      - name: Authenticate with GitHub
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/anupgautam430/BirthDateUpdate.git
+
       - name: Pull, Commit, and Push changes
         run: |
-          git stash 
-          git pull origin master 
+          git stash
+          git pull origin master
           git stash pop || echo "No changes to apply"
           git add README.md
           git commit -m "Updated time since birth" || echo "No changes to commit"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git push origin master
