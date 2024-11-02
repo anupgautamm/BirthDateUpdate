@@ -1,16 +1,16 @@
 # ⏳ Time Since Birth (Updated Every Minute)
 
-| **English Birth Date** | Thu Nov 23 2000 |
+| **English Birth Date** | Sat Dec 23 2000 |
 |------------------------|-------------------------------------|
-| **Nepali Birth Date**  | 2057/08/07                  |
+| **Nepali Birth Date**  | undefined/undefined/undefined                  |
 
 ## 📅 Elapsed Time:
 
 - **Years**: 23
-- **Months**: 9
-- **Days**: 28
-- **Hours**: 23
-- **Minutes**: 31
-- **Seconds**: 41
+- **Months**: 10
+- **Days**: 9
+- **Hours**: 13
+- **Minutes**: 15
+- **Seconds**: 47
 
 This file updates automatically every minute to show the time since birth in both the English and Nepali calendars.
