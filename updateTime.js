@@ -22,11 +22,8 @@ function calculateTimeDifference(birthDate) {
 }
 
 function getNepaliDate(birthDate) {
-    const year = birthDate.getFullYear();
-    const month = birthDate.getMonth() + 1; 
-    const day = birthDate.getDate();
-
-    const nepaliDate = engToNep(year, month, day); 
+    const { fromAD } = require('nepali-date-converter');
+    const nepaliDate = fromAD(birthDate.getFullYear(), birthDate.getMonth(), birthDate.getDate());
     return `${nepaliDate.year}/${nepaliDate.month}/${nepaliDate.day}`;
 }
 
