@@ -27,10 +27,16 @@ jobs:
         run: |
           node updateTime.js || echo "Script failed"
 
-      - name: Commit and push changes
+      - name: Configure Git
         run: |
-          git config --global user.name 'Anup Gautam'        
+          git config --global user.name 'Anup Gautam'
           git config --global user.email 'anupgautam430@gmail.com'
+
+      - name: Pull, Commit, and Push changes
+        run: |
+          git stash 
+          git pull origin master 
+          git stash pop || echo "No changes to apply"
           git add README.md
           git commit -m "Updated time since birth" || echo "No changes to commit"
           git push
