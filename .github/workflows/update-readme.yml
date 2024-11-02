@@ -2,7 +2,7 @@ name: Update README with Time Since Birth
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  
+    - cron: '*/15 * * * *'
 
 permissions:
   contents: write
@@ -20,7 +20,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  
+          node-version: '16'
 
       - name: Install dependencies
         run: npm install
@@ -34,15 +34,17 @@ jobs:
           git config --global user.name 'Anup Gautam'
           git config --global user.email 'anupgautam430@gmail.com'
 
-      - name: Authenticate with GitHub
+      - name: Pull latest changes
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/anupgautam430/BirthDateUpdate.git
+          git pull origin master || echo "No changes to pull"
 
-      - name: Pull, Commit, and Push changes
+      - name: Add and Commit changes
         run: |
-          git stash
-          git pull origin master
-          git stash pop || echo "No changes to apply"
           git add README.md
           git commit -m "Updated time since birth" || echo "No changes to commit"
-          git push origin master
+
+      - name: Push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push origin master || echo "No changes to push"
