@@ -2,7 +2,7 @@ name: Update README with Time Since Birth
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  
+    - cron: '*/15 * * * *'  
 
 permissions:
   contents: write

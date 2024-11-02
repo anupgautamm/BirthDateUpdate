@@ -49,9 +49,14 @@ This file updates automatically every minute to show the time since birth in bot
 }
 
 async function commitAndPush() {
-    await git.add('./README.md');
-    await git.commit('Updated time since birth');
-    await git.push();
+    try {
+        await git.pull('origin', 'master');
+        await git.add('./README.md');
+        await git.commit('Updated time since birth');
+        await git.push();
+    } catch (error) {
+        console.error('Error during commit and push:', error);
+    }
 }
 
 async function run() {
