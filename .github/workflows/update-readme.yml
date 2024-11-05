@@ -25,7 +25,7 @@ jobs:
 
       - name: Run update script
         run: |
-          node updatedate.js
+          node updateTime.js
 
       - name: Commit and push changes
         run: |
