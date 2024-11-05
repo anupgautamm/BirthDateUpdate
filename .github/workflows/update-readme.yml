@@ -3,7 +3,7 @@ name: Update README with Time Since Birth
 on:
   schedule:
     - cron: "0 */2 * * *"  
-  workflow_dispatch:       
+  workflow_dispatch:        
 
 jobs:
   update-readme:
@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false  
 
       - name: Configure Git
         run: |
@@ -25,12 +27,23 @@ jobs:
 
       - name: Run update script
         run: |
-          node updateTime.js
+          node updatedate.js
+
+      - name: Check for changes in README.md
+        id: check_changes
+        run: |
+          if [[ -z $(git status --porcelain README.md) ]]; then
+            echo "No changes detected in README.md. Exiting."
+            exit 0
+          else
+            echo "::set-output name=changed::true"
+          fi
 
       - name: Commit and push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git add README.md
           git commit -m "Updated time since birth"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/anupgautam430/BirthDateUpdate.git" HEAD:$(git rev-parse --abbrev-ref HEAD)
