@@ -1,0 +1,36 @@
+name: Update README with Time Since Birth
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"  
+  workflow_dispatch:       
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10    
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "anupgautam430@gmail.com"
+          git config --global user.name "Anup Gautam"
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Run update script
+        run: |
+          node updatedate.js
+
+      - name: Commit and push changes
+        run: |
+          git add README.md
+          git commit -m "Updated time since birth"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
