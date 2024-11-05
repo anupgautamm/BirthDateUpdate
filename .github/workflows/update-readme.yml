@@ -27,7 +27,7 @@ jobs:
 
       - name: Run update script
         run: |
-          node updatedate.js
+          node updateTime.js
 
       - name: Check for changes in README.md
         id: check_changes
