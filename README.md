@@ -10,7 +10,7 @@
 - **Months**: 11
 - **Days**: 19
 - **Hours**: 21
-- **Minutes**: 7
+- **Minutes**: 8
 - **Seconds**: 35
 
 This file updates automatically every minute to show the time since birth in both the English and Nepali calendars.
