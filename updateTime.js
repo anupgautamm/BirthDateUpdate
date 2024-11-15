@@ -43,7 +43,41 @@ function updateReadme(timeDiff, nepaliBirthDate) {
 - **Minutes**: ${timeDiff.minutes}
 - **Seconds**: ${timeDiff.seconds}
 
-This file updates automatically every minute to show the time since birth in both the English and Nepali calendars.`;
+This file updates automatically every minute to show the time since birth in both the English and Nepali calendars.
+
+## 📘 Additional Information
+
+### Purpose
+This project is a simple Node.js script designed to demonstrate the use of date and time calculation and the integration of Git automation.
+
+### Technologies Used
+- **Node.js**: For running JavaScript server-side.
+- **Git**: For automated version control.
+- **Nepali Date Converter**: To convert Gregorian dates to Nepali calendar dates.
+
+### How It Works
+- The script calculates the time elapsed since a specified birth date.
+- It converts the English date to the corresponding Nepali date.
+- It updates a `README.md` file every minute with the current elapsed time and Nepali date.
+- Changes are committed and pushed to the repository automatically.
+
+### How to Use
+1. Clone the repository.
+2. Install the dependencies by running:
+   ```bash
+   npm install
+   ```
+3. Run the script using:
+   ```bash
+   node script.js
+   ```
+
+### Future Enhancements
+- Add more localization support for other date formats.
+- Improve error handling for Git operations.
+- Optimize date conversion logic for better accuracy.
+
+`;
 
     fs.writeFileSync('README.md', readmeContent);
 }
