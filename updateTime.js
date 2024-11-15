@@ -58,19 +58,19 @@ This project is a simple Node.js script designed to demonstrate the use of date 
 ### How It Works
 - The script calculates the time elapsed since a specified birth date.
 - It converts the English date to the corresponding Nepali date.
-- It updates a `README.md` file every minute with the current elapsed time and Nepali date.
+- It updates a README.md file every minute with the current elapsed time and Nepali date.
 - Changes are committed and pushed to the repository automatically.
 
 ### How to Use
 1. Clone the repository.
 2. Install the dependencies by running:
-   ```bash
+   ``bash
    npm install
-   ```
+   ``
 3. Run the script using:
-   ```bash
-   node script.js
-   ```
+   ``bash
+   node updateTime.js
+   ``
 
 ### Future Enhancements
 - Add more localization support for other date formats.
