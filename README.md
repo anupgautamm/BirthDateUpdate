@@ -6,11 +6,11 @@
 
 ## 📅 Elapsed Time:
 
-- **Years**: 23
-- **Months**: 11
-- **Days**: 29
-- **Hours**: 23
-- **Minutes**: 42
-- **Seconds**: 30
+- **Years**: 24
+- **Months**: 0
+- **Days**: 0
+- **Hours**: 19
+- **Minutes**: 16
+- **Seconds**: 48
 
 This file updates automatically every minute to show the time since birth in both the English and Nepali calendars.
