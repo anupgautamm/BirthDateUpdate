@@ -8,7 +8,7 @@
 
 - **Years**: 24
 - **Months**: 0
-- **Days**: 26
+- **Days**: 25
 - **Hours**: 21
 - **Minutes**: 43
 - **Seconds**: 26
