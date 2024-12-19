@@ -11,6 +11,6 @@
 - **Days**: 26
 - **Hours**: 21
 - **Minutes**: 32
-- **Seconds**: 25
+- **Seconds**: 28
 
 This file updates automatically every minute to show the time since birth in both the English and Nepali calendars.
