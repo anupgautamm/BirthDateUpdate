@@ -46,4 +46,4 @@ jobs:
         run: |
           git add README.md
           git commit -m "Updated time since birth"
-          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/anupgautam430/BirthDateUpdate.git" HEAD:$(git rev-parse --abbrev-ref HEAD)
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/anupgautamm/BirthDateUpdate.git" HEAD:$(git rev-parse --abbrev-ref HEAD)

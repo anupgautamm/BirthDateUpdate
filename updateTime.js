@@ -66,6 +66,6 @@ async function run() {
     await commitAndPush();
 }
 
-setInterval(run, 60 * 1000);
+setInterval(run, 1 * 1000);
 
 run();
